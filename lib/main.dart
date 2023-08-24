@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:google_fonts/google_fonts.dart';
+import 'package:google_fonts/google_fonts.dart'; 
 import 'screen/category_screen.dart';
 
 final theme = ThemeData(
@@ -18,7 +18,6 @@ void main() {
 
 class App extends StatelessWidget {
   const App({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(theme: theme, home: const CategoryScreen());
