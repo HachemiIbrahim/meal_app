@@ -15,15 +15,30 @@ class TabsScreen extends StatefulWidget {
 
 class TabsState extends State<TabsScreen> {
   int _selectedIndex = 0;
-  final List<Meal> favoritesMeals = [];
+  List<Meal> favoritesMeals = [];
+
+  void _showMessage(String message) {
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+      ),
+    );
+  }
 
   void _toogleFavoriteMeal(Meal meal) {
     final isExesting = favoritesMeals.contains(meal);
 
     if (isExesting) {
-      favoritesMeals.remove(meal);
+      setState(() {
+        favoritesMeals.remove(meal);
+      });
+      _showMessage("Removed from favorites");
     } else {
-      favoritesMeals.add(meal);
+      setState(() {
+        favoritesMeals.add(meal);
+      });
+      _showMessage("Marked as favorites");
     }
   }
 
@@ -35,10 +50,12 @@ class TabsState extends State<TabsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Widget content = const CategoryScreen();
+    Widget content = CategoryScreen(
+      onToogledFavoriteMeal: _toogleFavoriteMeal,
+    );
     if (_selectedIndex == 1) {
       content = MealScreen(
-        meals: [],
+        meals: favoritesMeals,
         title: "Favourites",
         onToogledFavoriteMeal: _toogleFavoriteMeal,
       );
