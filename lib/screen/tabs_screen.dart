@@ -51,18 +51,22 @@ class TabsState extends State<TabsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    String text = "Category";
     Widget content = CategoryScreen(
       onToogledFavoriteMeal: _toogleFavoriteMeal,
     );
     if (_selectedIndex == 1) {
+      text = "Favorites";
       content = MealScreen(
         meals: favoritesMeals,
-        title: "Favourites",
         onToogledFavoriteMeal: _toogleFavoriteMeal,
       );
     }
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text(text),
+      ),
       drawer: const MainDrawer(),
       body: content,
       bottomNavigationBar: BottomNavigationBar(

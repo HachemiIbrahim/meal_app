@@ -8,10 +8,10 @@ class MealScreen extends StatelessWidget {
   const MealScreen(
       {super.key,
       required this.meals,
-      required this.title,
+      this.title,
       required this.onToogledFavoriteMeal});
 
-  final String title;
+  final String? title;
   final List<Meal> meals;
   final void Function(Meal meal) onToogledFavoriteMeal;
 
@@ -60,11 +60,15 @@ class MealScreen extends StatelessWidget {
       );
     }
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: content,
-    );
+    if (title == null) {
+      return content;
+    } else {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text(title!),
+        ),
+        body: content,
+      );
+    }
   }
 }

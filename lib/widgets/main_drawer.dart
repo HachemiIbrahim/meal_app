@@ -9,7 +9,7 @@ class MainDrawer extends StatelessWidget {
         child: Column(
       children: [
         DrawerHeader(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Row(
             children: [
               Icon(Icons.fastfood,
