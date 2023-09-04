@@ -49,6 +49,13 @@ class TabsState extends State<TabsScreen> {
     });
   }
 
+  void _SelectedScreen(String identifier) {
+    if (identifier == "filters") {
+    } else {
+      Navigator.of(context).pop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     String text = "Category";
@@ -67,7 +74,9 @@ class TabsState extends State<TabsScreen> {
       appBar: AppBar(
         title: Text(text),
       ),
-      drawer: const MainDrawer(),
+      drawer: MainDrawer(
+        onSelectedScreen: _SelectedScreen,
+      ),
       body: content,
       bottomNavigationBar: BottomNavigationBar(
           onTap: _SelectedPage,
