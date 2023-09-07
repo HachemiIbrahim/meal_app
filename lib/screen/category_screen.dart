@@ -6,12 +6,16 @@ import '../data/dummy_data.dart';
 import 'meal_screen.dart';
 
 class CategoryScreen extends StatelessWidget {
-  const CategoryScreen({super.key, required this.onToogledFavoriteMeal});
+  const CategoryScreen(
+      {super.key,
+      required this.onToogledFavoriteMeal,
+      required this.availebleMeals});
 
   final void Function(Meal meal) onToogledFavoriteMeal;
+  final List<Meal> availebleMeals;
 
   void _selectCategory(BuildContext context, Category category) {
-    final filteredMeals = dummyMeals
+    final filteredMeals = availebleMeals
         .where((element) => element.categories.contains(category.id))
         .toList();
 
