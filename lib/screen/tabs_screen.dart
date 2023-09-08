@@ -4,6 +4,7 @@ import 'package:meal_app/screen/meal_screen.dart';
 import 'package:meal_app/widgets/main_drawer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meal_app/provider/meal_provider.dart';
+import 'package:meal_app/provider/favorites_provider.dart';
 
 import '../model/meal.dart';
 import 'filtered_screen.dart';
@@ -36,22 +37,6 @@ class _TabsState extends ConsumerState<TabsScreen> {
         content: Text(message),
       ),
     );
-  }
-
-  void _toogleFavoriteMeal(Meal meal) {
-    final isExesting = favoritesMeals.contains(meal);
-
-    if (isExesting) {
-      setState(() {
-        favoritesMeals.remove(meal);
-      });
-      _showMessage("Removed from favorites");
-    } else {
-      setState(() {
-        favoritesMeals.add(meal);
-      });
-      _showMessage("Marked as favorites");
-    }
   }
 
   void _SelectedPage(int value) {
@@ -98,13 +83,12 @@ class _TabsState extends ConsumerState<TabsScreen> {
     String text = "Category";
     Widget content = CategoryScreen(
       availebleMeals: availableMeals,
-      onToogledFavoriteMeal: _toogleFavoriteMeal,
     );
     if (_selectedIndex == 1) {
+      final favoritesMeals = ref.watch(favoriteMealProvider);
       text = "Favorites";
       content = MealScreen(
         meals: favoritesMeals,
-        onToogledFavoriteMeal: _toogleFavoriteMeal,
       );
     }
 

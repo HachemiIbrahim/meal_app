@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import '../model/meal.dart';
 
 class MealDetail extends StatelessWidget {
-  const MealDetail(
-      {super.key, required this.meal, required this.onToogledFavoriteMeal});
+  const MealDetail({
+    super.key,
+    required this.meal,
+  });
 
   final Meal meal;
-  final void Function(Meal meal) onToogledFavoriteMeal;
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +16,7 @@ class MealDetail extends StatelessWidget {
       appBar: AppBar(
         actions: [
           IconButton(
-            onPressed: () {
-              onToogledFavoriteMeal(meal);
-            },
+            onPressed: () {},
             icon: const Icon(Icons.star),
           ),
         ],
