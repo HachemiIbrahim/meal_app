@@ -30,15 +30,6 @@ class _TabsState extends ConsumerState<TabsScreen> {
   List<Meal> favoritesMeals = [];
   Map<filter, bool> _selectedFilters = kInsitialFilter;
 
-  void _showMessage(String message) {
-    ScaffoldMessenger.of(context).clearSnackBars();
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-      ),
-    );
-  }
-
   void _SelectedPage(int value) {
     setState(() {
       _selectedIndex = value;

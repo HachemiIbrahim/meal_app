@@ -5,13 +5,15 @@ import '../model/meal.dart';
 class FavoriteMealNotifier extends StateNotifier<List<Meal>> {
   FavoriteMealNotifier() : super([]);
 
-  void toogleFavoriteMeal(Meal meal) {
+  String toogleFavoriteMeal(Meal meal) {
     final isFavorites = state.contains(meal);
 
     if (isFavorites) {
       state = state.where((m) => m.id != meal).toList();
+      return "not favorite any more";
     } else {
       state = [...state, meal];
+      return "add as favorite";
     }
   }
 }

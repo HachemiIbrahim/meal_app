@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:meal_app/provider/favorites_provider.dart';
 
 import '../model/meal.dart';
 
-class MealDetail extends StatelessWidget {
+class MealDetail extends ConsumerWidget {
   const MealDetail({
     super.key,
     required this.meal,
@@ -11,12 +13,22 @@ class MealDetail extends StatelessWidget {
   final Meal meal;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              String message = ref
+                  .read(favoriteMealProvider.notifier)
+                  .toogleFavoriteMeal(meal);
+              ScaffoldMessenger.of(context).clearSnackBars();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(message),
+                ),
+              );
+            },
             icon: const Icon(Icons.star),
           ),
         ],
