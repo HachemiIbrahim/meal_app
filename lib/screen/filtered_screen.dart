@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class FilteredScreen extends StatefulWidget {
-  const FilteredScreen({super.key, required this.currentFilters});
+import '../provider/filters_provisder.dart';
 
-  final Map<filter, bool> currentFilters;
+class FilteredScreen extends ConsumerStatefulWidget {
+  const FilteredScreen({super.key});
 
   @override
-  State<FilteredScreen> createState() {
+  ConsumerState<FilteredScreen> createState() {
     return _FilteredScreenState();
   }
 }
 
-enum filter { isGlutenFree, isLactoseFree, isVegeterian, isVegan }
-
-class _FilteredScreenState extends State<FilteredScreen> {
+class _FilteredScreenState extends ConsumerState<FilteredScreen> {
   var _glutenFree = false;
   var _lactoseFree = false;
   var _vegeterian = false;
@@ -22,10 +21,11 @@ class _FilteredScreenState extends State<FilteredScreen> {
   @override
   void initState() {
     super.initState();
-    _glutenFree = widget.currentFilters[filter.isGlutenFree]!;
-    _lactoseFree = widget.currentFilters[filter.isLactoseFree]!;
-    _vegeterian = widget.currentFilters[filter.isVegeterian]!;
-    _vegan = widget.currentFilters[filter.isVegan]!;
+    final initFilter = ref.read(filterProvider);
+    _glutenFree = initFilter[filter.isGlutenFree]!;
+    _lactoseFree = initFilter[filter.isLactoseFree]!;
+    _vegeterian = initFilter[filter.isVegeterian]!;
+    _vegan = initFilter[filter.isVegan]!;
   }
 
   @override
@@ -36,13 +36,13 @@ class _FilteredScreenState extends State<FilteredScreen> {
       ),
       body: WillPopScope(
         onWillPop: () async {
-          Navigator.of(context).pop({
+          ref.read(filterProvider.notifier).setFilters({
             filter.isGlutenFree: _glutenFree,
             filter.isLactoseFree: _lactoseFree,
             filter.isVegeterian: _vegeterian,
             filter.isVegan: _vegan,
           });
-          return false;
+          return true;
         },
         child: Column(
           children: [
