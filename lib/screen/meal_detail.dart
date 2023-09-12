@@ -30,16 +30,7 @@ class MealDetail extends ConsumerWidget {
                 ),
               );
             },
-            icon: AnimatedSwitcher(
-              duration: const Duration(milliseconds: 300),
-              transitionBuilder: (child, animation) {
-                return RotationTransition(
-                  turns: animation,
-                  child: child,
-                );
-              },
-              child: Icon(isFavorite ? Icons.star : Icons.star_border),
-            ),
+            icon: Icon(isFavorite ? Icons.star : Icons.star_border),
           ),
         ],
         title: Text(meal.title),
@@ -47,11 +38,14 @@ class MealDetail extends ConsumerWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.network(
-              meal.imageUrl,
-              height: 300,
-              fit: BoxFit.cover,
-              width: double.infinity,
+            Hero(
+              tag: meal.id,
+              child: Image.network(
+                meal.imageUrl,
+                height: 300,
+                fit: BoxFit.cover,
+                width: double.infinity,
+              ),
             ),
             Text(
               "Ingredients",
