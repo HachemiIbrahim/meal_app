@@ -50,29 +50,32 @@ class _CategoryScreenState extends State<CategoryScreen>
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: animationController,
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 12),
-        child: GridView(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 3 / 2,
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 20),
-            children: [
-              for (final category in availableCategories)
-                CategotyGridItem(
-                  category: category,
-                  OnSelectedCategory: () {
-                    _selectCategory(context, category);
-                  },
-                )
-            ]),
-      ),
-      builder: (context, child) => Padding(
-        padding: EdgeInsets.only(top: 600 - animationController.value * 600),
-        child: child,
-      ),
-    );
+        animation: animationController,
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 12),
+          child: GridView(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 3 / 2,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20),
+              children: [
+                for (final category in availableCategories)
+                  CategotyGridItem(
+                    category: category,
+                    OnSelectedCategory: () {
+                      _selectCategory(context, category);
+                    },
+                  )
+              ]),
+        ),
+        builder: (context, child) => SlideTransition(
+              position: Tween(
+                begin: const Offset(0, 0.3),
+                end: const Offset(0, 0),
+              ).animate(CurvedAnimation(
+                  parent: animationController, curve: Curves.easeIn)),
+              child: child,
+            ));
   }
 }
