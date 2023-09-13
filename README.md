@@ -1,10 +1,4 @@
 <h1>Meal App</h1>
-
-<h1>Table of Contents</h1>
-1-Description<br>
-2-Features<br>
-3-Getting Started<br>
-4-Usage<br>
     
 
 <h1>Description</h1>
