@@ -40,4 +40,45 @@ class Meal {
   final bool isLactoseFree;
   final bool isVegan;
   final bool isVegetarian;
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'categories': categories,
+      'title': title,
+      'imageUrl': imageUrl,
+      'ingredients': ingredients,
+      'steps': steps,
+      'duration': duration,
+      'complexity': complexity.toString().split('.').last,
+      'affordability': affordability.toString().split('.').last,
+      'isGlutenFree': isGlutenFree,
+      'isLactoseFree': isLactoseFree,
+      'isVegan': isVegan,
+      'isVegetarian': isVegetarian,
+    };
+  }
+
+  factory Meal.fromJson(Map<String, dynamic> json) {
+    return Meal(
+      id: json['id'],
+      categories: List<String>.from(json['categories']),
+      title: json['title'],
+      imageUrl: json['imageUrl'],
+      ingredients: List<String>.from(json['ingredients']),
+      steps: List<String>.from(json['steps']),
+      duration: json['duration'],
+      complexity: Complexity.values.firstWhere(
+          (element) => element.toString().split('.').last == json['complexity'],
+          orElse: () => Complexity.simple),
+      affordability: Affordability.values.firstWhere(
+          (element) =>
+              element.toString().split('.').last == json['affordability'],
+          orElse: () => Affordability.affordable),
+      isGlutenFree: json['isGlutenFree'],
+      isLactoseFree: json['isLactoseFree'],
+      isVegan: json['isVegan'],
+      isVegetarian: json['isVegetarian'],
+    );
+  }
 }
