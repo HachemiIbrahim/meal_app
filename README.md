@@ -3,7 +3,7 @@
 
 <h1>Description</h1>
 
-The Meal App is a mobile application built using Flutter and Riverpod. It provides users with a convenient way to discover and explore a variety of meals. Users can browse through categories, view meal details including ingredients and preparation steps, mark their favorite meals, and apply filters such as gluten-free, lactose-free, vegetarian, and vegan meals.
+The Meal App is a mobile application built using Flutter and Riverpod. It provides users with a convenient way to discover and explore a variety of meals. Users can browse through categories, view meal details including ingredients and preparation steps, mark their favorite meals, and apply filters such as gluten-free, lactose-free, vegetarian, and vegan meals
 <h1>Features</h1>
 1-Category Selection: Users can start by selecting a meal category of their choice.<br>
 2-Meal List: Within each category, users can view a list of meals.<br>
