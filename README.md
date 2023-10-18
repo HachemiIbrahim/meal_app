@@ -28,12 +28,12 @@ Follow these steps to get the Meal App up and running on your local development 
 5-Use the filter options to narrow down meal choices based on dietary preferences.<br>
 
 <h1>Screenshots</h1>
-<div>
-<img src="images/Screenshot_20231018_222828.jpg" alt="Image Description" width="300" height="500">
-<img src="images/Screenshot_20231018_222833.jpg" alt="Image Description" width="300" height="500">
-<img src="images/Screenshot_20231018_222845.jpg" alt="Image Description" width="300" height="500">
-<img src="images/Screenshot_20231018_222908.jpg" alt="Image Description" width="300" height="500">
-<img src="images/Screenshot_20231018_222926.jpg" alt="Image Description" width="300" height="500">
-<img src="images/Screenshot_20231018_222932.jpg" alt="Image Description" width="300" height="500">
-</div>
 
+ <p>
+  <img src="images/Screenshot_20231018_222828.jpg" alt="Image Description" width="300" height="500" style="margin-right: 10px;">
+  <img src="images/Screenshot_20231018_222833.jpg" alt="Image Description" width="300" height="500" style="margin-right: 10px;">
+  <img src="images/Screenshot_20231018_222845.jpg" alt="Image Description" width="300" height="500" style="margin-right: 10px;">
+  <img src="images/Screenshot_20231018_222908.jpg" alt="Image Description" width="300" height="500" style="margin-right: 10px;">
+  <img src="images/Screenshot_20231018_222926.jpg" alt="Image Description" width="300" height="500" style="margin-right: 10px;">
+  <img src="images/Screenshot_20231018_222932.jpg" alt="Image Description" width="300" height="500">
+</p>
