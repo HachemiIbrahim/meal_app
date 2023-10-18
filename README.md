@@ -26,3 +26,12 @@ Follow these steps to get the Meal App up and running on your local development 
 3-Click on a meal to view its details, including ingredients and preparation steps.<br>
 4-Mark meals as favorites by clicking the heart icon.<br>
 5-Use the filter options to narrow down meal choices based on dietary preferences.<br>
+
+<h1>Screenshots</h1>
+<img src="images/Screenshot_20231018_222828.jpg" alt="Image Description" width="300" height="500">
+<img src="images/Screenshot_20231018_222833.jpg" alt="Image Description" width="300" height="500">
+<img src="images/Screenshot_20231018_222845.jpg" alt="Image Description" width="300" height="500">
+<img src="images/Screenshot_20231018_222908.jpg" alt="Image Description" width="300" height="500">
+<img src="images/Screenshot_20231018_222926.jpg" alt="Image Description" width="300" height="500">
+<img src="images/Screenshot_20231018_222932.jpg" alt="Image Description" width="300" height="500">
+
